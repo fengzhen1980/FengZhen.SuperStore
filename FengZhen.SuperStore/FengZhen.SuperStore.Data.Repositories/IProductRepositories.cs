@@ -10,9 +10,9 @@ namespace FengZhen.SuperStore.Data.Repositories
     public interface IProductRepositories
     {
         void AddProduct(string id, string name, decimal price, int count);
-        void RemoveProduct(int id, int count);
+        void RemoveProduct(string id, int count);
         void UpdateProductById(string id, string name, decimal price, int count);
-        Product GetProductById(int id);
+        Product GetProductById(string id);
         List<Product> GetProducts();
     }
 }

@@ -32,7 +32,7 @@ namespace FengZhen.SuperStore.Data.Repositories
 
             var productList = GetProductsFromJson();
 
-            var product = productList.FirstOrDefault(x => x.ProductId == id);
+            var product = productList.FirstOrDefault(x => x.ProductId.Equals(id));
 
             if(product == null)
             {
@@ -42,30 +42,58 @@ namespace FengZhen.SuperStore.Data.Repositories
                 product.ProductPrice = price;
                 product.ProductCount = count;
                 productList.Add(product);
+
             }
             else
             {
                 product.ProductName = name;
                 product.ProductPrice = price;
-                product.ProductCountCount += count;
+                product.ProductCount += count;
             }
 
-            SaveToJson.(products);
+            SaveToJson(productList);
         }
 
-        public Product GetProductById(int id)
+        public Product GetProductById(string id)
         {
-            throw new NotImplementedException();
+            var productList = GetProductsFromJson();
+
+            var product = productList.FirstOrDefault(x => x.ProductId.Equals(id));
+
+            return product;
         }
 
         public List<Product> GetProducts()
         {
-            throw new NotImplementedException();
+            var products = GetProductsFromJson();
+            return products;
         }
 
-        public void RemoveProduct(int id, int count)
+        public void RemoveProduct(string id, int count)
         {
-            throw new NotImplementedException();
+            if (count <= 0)
+            {
+                throw new ArgumentException("Count must larger then 0.");
+            }
+
+            var productList = GetProductsFromJson();
+
+            var product = productList.FirstOrDefault(x => x.ProductId.Equals(id));
+
+            if (product == null)
+            {
+                throw new ArgumentException("ProductId is not exist.");
+            }
+            else
+            {
+                product.ProductCount -= count;
+
+                if (product.ProductCount <= 0)
+                {
+                    productList.Remove(product);
+                }
+                SaveToJson(productList);
+            }
         }
 
         public void UpdateProductById(string id, string name, decimal price, int count)
@@ -86,6 +114,11 @@ namespace FengZhen.SuperStore.Data.Repositories
             }
 
             return products;
+        }
+
+        private void SaveToJson(List<Product> products)
+        {
+            File.WriteAllText(ProductJsonFile, JsonConvert.SerializeObject(products));
         }
     }
 }
