@@ -31,6 +31,26 @@ namespace FengZhen.SuperStore.Data.Repositories
             }
 
             var productList = GetProductsFromJson();
+
+            var product = productList.FirstOrDefault(x => x.ProductId == id);
+
+            if(product == null)
+            {
+                product = new Product();
+                product.ProductId = id;
+                product.ProductName = name;
+                product.ProductPrice = price;
+                product.ProductCount = count;
+                productList.Add(product);
+            }
+            else
+            {
+                product.ProductName = name;
+                product.ProductPrice = price;
+                product.ProductCountCount += count;
+            }
+
+            SaveToJson.(products);
         }
 
         public Product GetProductById(int id)
