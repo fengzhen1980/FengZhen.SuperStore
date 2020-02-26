@@ -10,6 +10,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FengZhen.SuperStore.Data.Re
 		{16FA2C64-E862-4D76-A481-7E0A006D17FC} = {16FA2C64-E862-4D76-A481-7E0A006D17FC}
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FengZhen.SuperStore.Services", "FengZhen.SuperStore.Services\FengZhen.SuperStore.Services.csproj", "{2D2F823E-8D8C-481B-A252-DB6552956358}"
+	ProjectSection(ProjectDependencies) = postProject
+		{D4958A1A-32C2-49C3-A348-4619BC1AAE38} = {D4958A1A-32C2-49C3-A348-4619BC1AAE38}
+		{16FA2C64-E862-4D76-A481-7E0A006D17FC} = {16FA2C64-E862-4D76-A481-7E0A006D17FC}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,6 +30,10 @@ Global
 		{D4958A1A-32C2-49C3-A348-4619BC1AAE38}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D4958A1A-32C2-49C3-A348-4619BC1AAE38}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D4958A1A-32C2-49C3-A348-4619BC1AAE38}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D2F823E-8D8C-481B-A252-DB6552956358}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D2F823E-8D8C-481B-A252-DB6552956358}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D2F823E-8D8C-481B-A252-DB6552956358}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D2F823E-8D8C-481B-A252-DB6552956358}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

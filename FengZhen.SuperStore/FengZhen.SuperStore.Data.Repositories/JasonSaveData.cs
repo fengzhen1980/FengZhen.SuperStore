@@ -13,7 +13,7 @@ namespace FengZhen.SuperStore.Data.Repositories
     {
         private const string ProductJsonFile = "ProductData.json";
 
-        public void AddProduct(string id, string name, decimal price, int count)
+        public int AddProduct(string id, string name, decimal price, int count)
         {
             if (price <= 0)
             {
@@ -52,6 +52,7 @@ namespace FengZhen.SuperStore.Data.Repositories
             }
 
             SaveToJson(productList);
+            return (0);
         }
 
         public Product GetProductById(string id)
@@ -69,7 +70,7 @@ namespace FengZhen.SuperStore.Data.Repositories
             return products;
         }
 
-        public void RemoveProduct(string id, int count)
+        public int RemoveProduct(string id, int count)
         {
             if (count <= 0)
             {
@@ -82,7 +83,7 @@ namespace FengZhen.SuperStore.Data.Repositories
 
             if (product == null)
             {
-                throw new ArgumentException("ProductId is not exist.");
+                throw new ArgumentException("ProductId is not exist! Delete failed!");
             }
             else
             {
@@ -94,11 +95,43 @@ namespace FengZhen.SuperStore.Data.Repositories
                 }
                 SaveToJson(productList);
             }
+            return (0);
         }
 
-        public void UpdateProductById(string id, string name, decimal price, int count)
+        public int UpdateProductById(string id, string name, decimal price, int count)
         {
-            throw new NotImplementedException();
+            if (price <= 0)
+            {
+                throw new ArgumentException("Price must larger then 0.");
+            }
+
+            if (string.IsNullOrWhiteSpace(name))
+            {
+                throw new ArgumentException("Name cannot be null or white space.");
+            }
+
+            if (count <= 0)
+            {
+                throw new ArgumentException("Count must larger then 0.");
+            }
+
+            var productList = GetProductsFromJson();
+
+            var product = productList.FirstOrDefault(x => x.ProductId.Equals(id));
+
+            if (product == null)
+            {
+                throw new ArgumentException("ProductId is not exist! Update failed!");
+            }
+            else
+            {
+                product.ProductName = name;
+                product.ProductPrice = price;
+                product.ProductCount = count;
+
+                SaveToJson(productList);
+            }
+            return (0);
         }
 
         private List<Product> GetProductsFromJson()
