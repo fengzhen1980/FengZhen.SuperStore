@@ -41,6 +41,7 @@
             this.buttonDelete = new System.Windows.Forms.Button();
             this.dataGridViewProduct = new System.Windows.Forms.DataGridView();
             this.buttonGetAll = new System.Windows.Forms.Button();
+            this.Select = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProduct)).BeginInit();
             this.SuspendLayout();
             // 
@@ -115,9 +116,9 @@
             // buttonAdd
             // 
             this.buttonAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonAdd.Location = new System.Drawing.Point(494, 32);
+            this.buttonAdd.Location = new System.Drawing.Point(494, 23);
             this.buttonAdd.Name = "buttonAdd";
-            this.buttonAdd.Size = new System.Drawing.Size(164, 40);
+            this.buttonAdd.Size = new System.Drawing.Size(164, 44);
             this.buttonAdd.TabIndex = 8;
             this.buttonAdd.Text = "Add";
             this.buttonAdd.UseVisualStyleBackColor = true;
@@ -126,9 +127,9 @@
             // buttonUpdate
             // 
             this.buttonUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonUpdate.Location = new System.Drawing.Point(494, 79);
+            this.buttonUpdate.Location = new System.Drawing.Point(494, 69);
             this.buttonUpdate.Name = "buttonUpdate";
-            this.buttonUpdate.Size = new System.Drawing.Size(164, 36);
+            this.buttonUpdate.Size = new System.Drawing.Size(164, 44);
             this.buttonUpdate.TabIndex = 9;
             this.buttonUpdate.Text = "Update";
             this.buttonUpdate.UseVisualStyleBackColor = true;
@@ -137,7 +138,7 @@
             // buttonDelete
             // 
             this.buttonDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonDelete.Location = new System.Drawing.Point(494, 125);
+            this.buttonDelete.Location = new System.Drawing.Point(494, 115);
             this.buttonDelete.Name = "buttonDelete";
             this.buttonDelete.Size = new System.Drawing.Size(164, 44);
             this.buttonDelete.TabIndex = 10;
@@ -154,6 +155,7 @@
             this.dataGridViewProduct.RowTemplate.Height = 24;
             this.dataGridViewProduct.Size = new System.Drawing.Size(765, 150);
             this.dataGridViewProduct.TabIndex = 11;
+            this.dataGridViewProduct.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DataGridViewListCellMouseDoubleClick);
             // 
             // buttonGetAll
             // 
@@ -166,11 +168,23 @@
             this.buttonGetAll.UseVisualStyleBackColor = true;
             this.buttonGetAll.Click += new System.EventHandler(this.buttonGetAll_Click);
             // 
+            // Select
+            // 
+            this.Select.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Select.Location = new System.Drawing.Point(494, 161);
+            this.Select.Name = "Select";
+            this.Select.Size = new System.Drawing.Size(164, 44);
+            this.Select.TabIndex = 13;
+            this.Select.Text = "Select";
+            this.Select.UseVisualStyleBackColor = true;
+            this.Select.Click += new System.EventHandler(this.Select_Click);
+            // 
             // AdminForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.Select);
             this.Controls.Add(this.buttonGetAll);
             this.Controls.Add(this.dataGridViewProduct);
             this.Controls.Add(this.buttonDelete);
@@ -207,5 +221,6 @@
         private System.Windows.Forms.Button buttonDelete;
         private System.Windows.Forms.DataGridView dataGridViewProduct;
         private System.Windows.Forms.Button buttonGetAll;
+        private System.Windows.Forms.Button Select;
     }
 }
