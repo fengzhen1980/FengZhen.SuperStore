@@ -1,5 +1,6 @@
 ﻿using FengZhen.SuperStore.Data.Entities;
 using FengZhen.SuperStore.Data.Repositories;
+using System;
 using System.Collections.Generic;
 
 namespace FengZhen.SuperStore.Services
@@ -25,6 +26,24 @@ namespace FengZhen.SuperStore.Services
             var product = _productRepositorie.GetProductById(id);
             _productRepositorie.AddProduct(id, product.ProductName, product.ProductPrice, count);
             return (0);
+        }
+
+        public int UpdateProductById(
+            string id,
+            string name,
+            decimal price,
+            int count)
+        {
+            try
+            {
+                _productRepositorie.UpdateProductById(id, name, price, count);
+                return (0);
+            }
+            catch(ArgumentException e)
+            {
+                return (1);
+            }
+            
         }
 
         public Product GetProductById(string id)

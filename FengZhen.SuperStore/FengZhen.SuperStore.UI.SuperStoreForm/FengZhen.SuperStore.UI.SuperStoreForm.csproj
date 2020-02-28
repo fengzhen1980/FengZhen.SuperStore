@@ -65,6 +65,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AdminForm.resx">
+      <DependentUpon>AdminForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -89,6 +92,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FengZhen.SuperStore.Data.Entities\FengZhen.SuperStore.Data.Entities.csproj">
+      <Project>{16FA2C64-E862-4D76-A481-7E0A006D17FC}</Project>
+      <Name>FengZhen.SuperStore.Data.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FengZhen.SuperStore.Services\FengZhen.SuperStore.Services.csproj">
+      <Project>{2d2f823e-8d8c-481b-a252-db6552956358}</Project>
+      <Name>FengZhen.SuperStore.Services</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
