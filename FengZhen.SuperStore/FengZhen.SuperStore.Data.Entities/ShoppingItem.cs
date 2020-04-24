@@ -12,6 +12,7 @@ namespace FengZhen.SuperStore.Data.Entities
         public string ProductName { get; set; }
         public decimal ItemPrice { get; set; }
         public int ItemCount { get; set; } = 1;
+        public decimal ItemSumPrice { get; set; }
         public decimal Discount { get; set; }
     }
 }

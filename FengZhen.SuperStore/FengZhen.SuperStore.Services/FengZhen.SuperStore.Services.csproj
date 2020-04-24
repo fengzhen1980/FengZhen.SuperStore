@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="ProductService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ShoppingService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FengZhen.SuperStore.Data.Entities\FengZhen.SuperStore.Data.Entities.csproj">

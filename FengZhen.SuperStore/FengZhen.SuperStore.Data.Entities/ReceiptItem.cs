@@ -13,5 +13,9 @@ namespace FengZhen.SuperStore.Data.Entities
         public decimal ReceiptPriceOne { get; set; }
         public decimal ReceiptCount { get; set; }
         public decimal ReceiptItemsPrice { get; set; }
+        public override string ToString()
+        {
+            return $"Product Id:{ReceiptItemId}, {ReceiptItemName}, {ReceiptPriceOne}  X  {ReceiptCount} = ${ReceiptItemsPrice} \r\n";
+        }
     }
 }
